@@ -288,7 +288,7 @@ For a Bayesian model this would also require priors on the process error ($\tau_
 The probability distribution for the state variable, $z_{t}$, conditional on the model parameters would be:
 
 $$
-\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{{\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{{\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next time} \;
+\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{ {\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next time} \;
 $$
 
 
@@ -301,7 +301,7 @@ In fact, the posterior of the current state ($z_{t}$) is proportional to the pro
 ## State-space models - example {.smaller background-color="#33431e"}
 
 $$
-\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{{\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{{\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next time} \;
+\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{ {\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next time} \;
 $$
 
 ```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
@@ -332,7 +332,7 @@ Where the terms are similar, the state estimate peaks, indicating less uncertain
 ## State-space models - example {.smaller background-color="#33431e"}
 
 $$
-\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{{\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{{\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next time} \;
+\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \; \underbrace{ {\mathit{N}(z_{t+1}|z_{t},\tau_{add})}}_\text{next time} \;
 $$
 
 ```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
@@ -364,7 +364,7 @@ Where the terms differ, the state estimate flattens, indicating greater uncertai
 
 
 $$
-\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{{\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \;
+\underbrace{z_{t}|...}_\text{current state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; \underbrace{ {\mathit{N}(y_{t}|z_{t},\tau_{obs})}}_\text{current observation} \;
 $$
 
 ```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
@@ -399,7 +399,7 @@ Often, there's no observation for "next time", and the model reduces to...
 There's no "current observation" for forecasts, so:
 
 $$
-\underbrace{z_{t}|...}_\text{forecast state} \; \propto \; \underbrace{{\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; 
+\underbrace{z_{t}|...}_\text{forecast state} \; \propto \; \underbrace{ {\mathit{N}(z_{t}|z_{t-1},\tau_{add})}}_\text{previous time} \; 
 $$
 
 ```{r, echo = F, fig.width = 7, fig.asp = 0.5, fig.align='center'}
