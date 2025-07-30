@@ -1,4 +1,3 @@
-fig:rstudiosuccess
 fig:decisions1
 fig:decisions2
 fig:gettingquantitative
@@ -60,13 +59,13 @@ fig:dataassimilation
 fig:analysissteps
 fig:dietze2018F1b
 fig:structureddecisions
+fig:rstudiosuccess
 overview
 general
-lectures-and-practicals
+information-for-participants-in-the-bio319s-course-2025
 preparation
-a-bit-about-me
+a-bit-about-the-author
 acknowledgements-and-further-reading
-pracprep
 models
 the-basics-of-making-a-decision
 getting-quantitative
@@ -151,6 +150,7 @@ in-an-ideal-world
 in-reality
 final-words
 revision
+pracprep
 practical
 objectives
 postfire-regeneration
@@ -176,3 +176,5 @@ compare-nls-models-using-anova
 fit-models-using-maximum-likelihood-estimation-mle
 compare-mle-models-using-akaikes-information-criterion-aic
 going-bayesian
+information-for-the-bio3019s-course-2025
+information-for-the-bio3019s-class-of-2025

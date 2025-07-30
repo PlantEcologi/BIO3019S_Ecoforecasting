@@ -11,48 +11,44 @@ bibliography:
 - packages.bib
 biblio-style: apalike
 link-citations: yes
-github-repo: jslingsby/BIO3019S_Ecoforecasting
-description: This is a minimal introduction to Ecological Forecasting and Reproducible
-  Research for the 3rd year undergraduate Biological Sciences BIO3019S class at the
-  University of Cape Town.
+github-repo: PlantEcologi/BIO3019S_Ecoforecasting
+description: This open text book provides a short introduction to Ecological Forecasting for advanced undergraduate students. It was developed for the 3rd year Quantitative Biology course (BIO3019S) offered by the Biological Sciences Department at the University of Cape Town.
 ---
 
 # Overview
 
-_This module is a minimal introduction to Ecological Forecasting for the 3rd year undergraduate Biological Sciences class in Quantitative Biology (BIO3019S) at the University of Cape Town. A brief introduction to the course in general can be found [here](presentations/0_QuantitativeBiology.html)._
+_This open text book provides a short introduction to Ecological Forecasting for advanced undergraduate students. It was developed for the 3rd year Quantitative Biology course (BIO3019S) offered by the Biological Sciences Department at the University of Cape Town. A brief introduction to the course in general can be found [here](presentations/0_QuantitativeBiology.html)._
+
 
 ## General
 
-I provide a very brief introduction to the framework for Ecological Forecasting. We only have a two weeks, so this really is a minimalist introduction. I'll focus on providing a **broad overview of the general framework and motivation for ecological forecasting**, but won't have time to delve into the more gory theoretical and statistical details. I mostly use Ecological Forecasting as a framework to **highlight various themes and principles that are increasingly important for quantitative biologists** - understanding how we inform or make decisions; managing data; working reproducibly; propagating, understanding and reducing uncertainty, etc.
+This book provides a very brief introduction to the framework for Ecological Forecasting. As a course it is taught over two weeks, so this really is a minimalist introduction. The focus is on providing a **broad overview of the general framework and motivation for ecological forecasting**, but doesn't delve too deeply into the more gory theoretical and statistical details. Ecological Forecasting is used as a framework to **highlight various themes and principles that are increasingly important for quantitative biologists** - understanding how we inform or make decisions; managing data; working reproducibly; propagating, understanding and reducing uncertainty, etc.
 
-Not all of this is fun and exciting, but as I said, it is important stuff for quantitative biologists to know. I'll try my best to make it interesting! Hopefully by the end of the module you'll see the value in it all - both for you as an individual and for science and society in general.
+Not all of this is fun and exciting, but it is important for quantitative biologists to know. Hopefully by the end of the module you'll see the value in it all - both for you as an individual and for science and society in general.
 
-**The core outcomes/concepts I hope you'll come away with:**
+**The core outcomes/concepts you'll come away with:**
 
 * To be able to situate the role of models and the importance of forecasting in science and ecological decision making
 * Familiarity with the concepts and understand the need for Open, Reproducible Science
 * Familiarity with The Data Life Cycle
 * Familiarity with the value and flexibility of Bayesian statistical methods
 * Some familiarity with sources of uncertainty and the need to characterize, propagate, analyze, reduce and present uncertainties when forecasting
-* See additional revision questions in section \@ref(revision).
 
 <br>
 
-## Lectures and practicals
+## Information for the BIO3019S class of 2025
 
 **Lectures** 
 
-Lectures will be held live 12:00 - 12:45 from 22 July - 2 August.
-
-I'll be refining and adding to (and mostly teaching from) these online course notes as we go.
+Lectures will be held live in BIO LT in the HW Pearson Building 12:00 - 12:45 from 4 - 15th August.
 
 <br>
 
 **Practicals**
 
-There is only one practical for this module, 2-5PM on Tuesday the 30th July. **You will need to spend half an hour setting up the required software on your laptops before Monday the 29th July!!! See instructions below.**
+There is only one practical exercise for this module (see section \@ref(practical)), which will be run 2-5PM on Tuesday the 12th August. **You will need to spend half an hour setting up the required software on your laptops before Monday the 11th August!!! See instructions below.**
 
-Your report on the practical will be ***due on Tuesday, 6th August*** - You will be evaluated on how well you completed the Github task during the practical and your answers to a short set of questions about the analyses. Answering the questions shouldn't take more than half an hour.
+Your report on the practical will be ***due on Tuesday, 19th August*** - You will be evaluated on how well you completed the Github task during the practical and your answers to a short set of questions about the analyses. Answering the questions shouldn't take more than half an hour.
 
 You need to install and set up RStudio and Github and test your setup. You can find the step-by-step instructions in section \@ref(pracprep). This may be a bit tedious, but there's no other option really. I've done my best to make it as painless as possible. It should take you about half an hour if all goes well... (less if you have R and RStudio installed already, but please make sure they are the latest versions!).
 
@@ -60,9 +56,9 @@ You need to install and set up RStudio and Github and test your setup. You can f
 
 <br>
 
-**Discussions**
+**Readings and Discussions**
 
-- **You are expected to read @Dietze2018 for Tuesday the 30th July.** You can download it [here](http://dx.doi.org/10.1073/pnas.1710231115). You will need to answer a few questions **beforehand** on [this Google Form](https://forms.gle/sSgopTfXSrzWBM2t5).
+- **You are expected to read @Dietze2018 for Tuesday the 12th August.** You can download it [here](http://dx.doi.org/10.1073/pnas.1710231115). You will need to answer a few questions **beforehand** on [this Google Form](https://forms.gle/sSgopTfXSrzWBM2t5).
 
 <br>
 
@@ -75,7 +71,7 @@ The following 4 minute video will give you a glossy overview of what most of thi
 
 <br>
 
-## A bit about me
+## A bit about the author
 
 I'm an ecologist who has become more quantitative through time, but has little formal training in quantitative methods (i.e. I've learnt by doing over the past 20 years). As such, I still make elementary mistakes. In fact, the entry requirements for this course are beyond my formal training, so you may have much to teach me! If you spot any errors, confusion or contradictions, please let me know and I'll get back to you and/or update the course notes accordingly. Hopefully by the end of the course you can suggest changes directly using [pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to the [GitHub repository](https://github.com/jslingsby/BIO3019S_Ecoforecasting) for the course notes.
 
@@ -83,7 +79,7 @@ I'm an ecologist who has become more quantitative through time, but has little f
 
 ## Acknowledgements and further reading:
 
-_The following resources were instrumental in me pulling this material together and are worth spending time exploring. I cite my sources throughout the course notes, so check out the references at the end of each section and the end of the course notes for more._
+_The following resources were instrumental in pulling this material together and are worth spending time exploring. Sources are cited throughout the course notes, so check out the references at the end of each section and the end of the course notes for more._
 
 * [ecoforecast.org](https://ecoforecast.org/)
 * Dietze, Michael C. 2017. Ecological Forecasting. Princeton University Press. https://doi.org/10.2307/j.ctvc7796h.
@@ -91,7 +87,7 @@ _The following resources were instrumental in me pulling this material together 
 
 <br>
 
-All code, images, etc can be found [here](https://github.com/jslingsby/BIO3019S_Ecoforecasting). I have only used images and other materials that were made available online under a non-restrictive license (Creative Commons, etc) or for which I have express permission, and have attributed my sources. Content without attribution is my own and shared under the license below. If there are any errors or any content you find concerning with regard to licensing, or that you find offensive, please [contact me](https://www.ecologi.st/contact/). Any feedback, positive or negative, is welcome!
+All code, images, etc can be found [here](https://github.com/jslingsby/BIO3019S_Ecoforecasting). Only images and other materials that were made available online under a non-restrictive license (Creative Commons, etc) or for which I have express permission have been used. Sources are attributed throughout. Content without attribution is my own and shared under the license below. If there are any errors or any content you find concerning with regard to licensing, or that you find offensive, please [get in touch](https://www.ecologi.st/contact/). Any feedback, positive or negative, is welcome!
 
 <br>
 

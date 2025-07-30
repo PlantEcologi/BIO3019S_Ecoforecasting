@@ -1,4 +1,4 @@
-# Preparation for the practical {#pracprep}
+# Preparation for the practical exercise {#pracprep}
 
 For the practical, we'll be using the [R](https://cran.r-project.org/) statistical programming language and the [Git](https://git-scm.com/) version control system. We'll also be using an [integrated development environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment) for each: [RStudio](https://www.rstudio.com) and [GitHub](https://github.com/), respectively.
 
