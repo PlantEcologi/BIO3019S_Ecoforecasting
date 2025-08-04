@@ -12,26 +12,35 @@ This section is also available as a slideshow below or [full screen](presentatio
 
 <br>
 
-You're probably wondering _"What are ecological forecasts?"_ or _"Where are we going with all this?"_ The focus of this section is to provide some context.
+You're probably wondering *"What are ecological forecasts?"* or *"Where are we going with all this?"* The focus of this section is to provide some context.
 
-Firstly, there's a long list of existing (or in development) ecological forecasting projects on the [Ecological Forecasting Initiative's website](https://ecoforecast.org/member-forecasting-profiles/) that you can peruse. These include diverse forecasts for (_inter alia_):
+Firstly, there's a long list of existing (or in development) ecological forecasting projects on the [Ecological Forecasting Initiative's website](https://ecoforecast.org/member-forecasting-profiles/) that you can peruse. These include diverse forecasts for (*inter alia*):
 
-- species population sizes
-- plant or ecosystem phenology
-- land cover change
-- tree/forest die-off
-- carbon stocks and sequestration rates
-- water quality
-- disease spread/risk
-- fishing quotas
-- risk of bycatch of species of concern
-- risk of shipping collisions with whales
-- risk of harmful algal blooms
-- etc
+-   species population sizes
+-   plant or ecosystem phenology
+-   land cover change
+-   tree/forest die-off
+-   carbon stocks and sequestration rates
+-   water level/quality/temperature
+-   disease spread/risk
+-   fishing quotas
+-   risk of bycatch of species of concern
+-   risk of shipping collisions with whales
+-   risk of harmful algal blooms
+-   etc
 
-For the rest of this section, I'm going to focus on an example of what I believe is one forecasting need and opportunity in the Fynbos Biome. I was going to give 3 examples, but rapidly realized it would be too long a lecture. I'll be using the other examples to illustrate various principles in later lectures, but hopefully this example will provide some practical context for some of the issues we'll address in the rest of the module.
+**What are the ecological forecasting needs in the Fynbos Biome?**
 
-> **Note:** This example has not yet been developed into full _near-term iterative ecological forecast_ sensu Dietze et al (2018). I also don't think they necessarily have to get all the way there to be useful. Think of it as an "ecological forecasting spectrum" where the gold standard is fully developed and automated near-term iterative ecological forecasts.
+```{r fynbos, echo=FALSE, fig.cap = "", fig.width=3, fig.align = 'center', out.width="80%"}
+knitr::include_graphics("img/CFR_Seasonality.gif")
+```
+
+The figure below from @Slingsby2023 outlines a set of different examples and needs for the Fynbos. I was going to try to cover all of them in this lecture, but rapidly realized it would be too long. The cool idea proposed by the paper is that many of the data streams and the informatics pipeline could be shared across multiple forecasts, reducing the overhead and maximising the versatility of the system. One could also learn a lot by comparing forecasts at different scales - e.g. the behaviour of plant populations versus the entire ecosystem.
+
+For the rest of this section, I'm going to focus on one example of what I believe is a forecasting need and opportunity in the Fynbos Biome.  I'll be using the other examples to illustrate various principles in later lectures, but hopefully this example will provide some practical context for some of the issues we'll address in the rest of the module.
+
+![](img/slingsby2023_figure1.png)
+
 
 <br>
 
@@ -51,6 +60,12 @@ knitr::include_graphics("img/cynaroideslive.jpg")
 
 ## Proteaceae as model organisms
 
+<br>
+
+> **Note:** This example has not yet been developed into full *near-term iterative ecological forecast* sensu Dietze et al (2018). I also don't think they necessarily have to get all the way there to be useful. Think of it as an "ecological forecasting spectrum" where the gold standard is fully developed and automated near-term iterative ecological forecasts.
+
+<br>
+
 The Proteaceae are probably the **best studied and understood plant family in the Fynbos Biome**. They have been the focus of a number of large, focused research programmes and are used as indicator species for various conservation management applications. There has been **extensive locality and demographic data** have been collected by conservation authorities (CapeNature and SANParks), citizen scientists (Protea Atlas Project and iNaturalist) and researchers since the late 1970s and before, and this is reflected in the large (and growing) scientific literature on the family.
 
 <br>
@@ -65,11 +80,11 @@ A huge benefit of the herculean Proteaceae data collection (and management) effo
 
 Because they are the best-studied group of plants in the Fynbos, they are heavily-utilized for informing conservation planning, management and monitoring. Some examples include informing:
 
-- protected area planning
-- wildfire management
-- wildflower harvesting
-- climate change vulnerability assessment and monitoring
-- I'm sure there are others I've forgotten...
+-   protected area planning
+-   wildfire management
+-   wildflower harvesting
+-   climate change vulnerability assessment and monitoring
+-   I'm sure there are others I've forgotten...
 
 <br>
 
@@ -77,8 +92,8 @@ Because they are the best-studied group of plants in the Fynbos, they are heavil
 
 Our knowledge of Proteaceae demography is used for management of Fynbos in two ways:
 
-1. At the _species level_, for setting guidelines for **sustainable wild harvesting** of their inflorescences
-2. At the _ecosystem level_, to help determine **acceptable fire return intervals**
+1.  At the *species level*, for setting guidelines for **sustainable wild harvesting** of their inflorescences
+2.  At the *ecosystem level*, to help determine **acceptable fire return intervals**
 
 <br>
 
@@ -96,10 +111,12 @@ knitr::include_graphics("img/proteaharvesting.jpg")
 
 <br>
 
-The management guidelines are currently set by "rule of thumb"^[https://en.wikipedia.org/wiki/Rule_of_thumb]:
+The management guidelines are currently set by "rule of thumb"[^02-forecasting-1]:
 
-> 1. **Wildflower harvesting:** _"[There should be no] harvesting until at least 50% of the population had commenced flowering, a harvest of up to 50% of current season flower heads after this stage, and no harvesting at least one year prior to a prescribed burn" [@vanWilgen2016]_
-> 2. **Fire return intervals:** _"No fire should be permitted in fynbos until at least 50% of the population of the slowest-maturing species in an area have flowered for at least three successive seasons (or at least 90% of the individuals of the slowest maturing species in the area have flowered and produced seed). Similarly, a fire is probably not necessary unless a third or more of the plants of these slow-maturing species are senescent (i.e. dying or no longer producing flowers and seed)." [@CapeNatureFire]_
+[^02-forecasting-1]: <https://en.wikipedia.org/wiki/Rule_of_thumb>
+
+> 1.  **Wildflower harvesting:** *"[There should be no] harvesting until at least 50% of the population had commenced flowering, a harvest of up to 50% of current season flower heads after this stage, and no harvesting at least one year prior to a prescribed burn" [@vanWilgen2016]*
+> 2.  **Fire return intervals:** *"No fire should be permitted in fynbos until at least 50% of the population of the slowest-maturing species in an area have flowered for at least three successive seasons (or at least 90% of the individuals of the slowest maturing species in the area have flowered and produced seed). Similarly, a fire is probably not necessary unless a third or more of the plants of these slow-maturing species are senescent (i.e. dying or no longer producing flowers and seed)." [@CapeNatureFire]*
 
 <br>
 
@@ -111,7 +128,7 @@ But is focusing on seeds alone reasonable? And if so, do the thresholds in the g
 
 ## Potential issues with the rules of thumb...
 
-Figure \@ref(fig:protearates) presents extensive field data for 26 Proteaceae species from @Treurnicht2016. 
+Figure \@ref(fig:protearates) presents extensive field data for 26 Proteaceae species from @Treurnicht2016.
 
 What issues might these data suggest for the rules of thumb?
 
@@ -125,15 +142,15 @@ knitr::include_graphics("img/protearates.jpg")
 
 These issues include:
 
-- **species differ in their reliance on seed** for their survival (e.g. sprouters vs seeders)
-  - sprouters have high persistence of adults through fires and need fewer new recruits from seed
-  - seeder adults are killed by fire, so populations depend entirely on recruitment from seed
-- **species vary in their fecundity** (total number of seeds)
-  - fecundity = number of inflorescences produced multiplied by the number of seeds per inflorescence
-- **species vary in seed viability and recruitment success**
-  - viability depends on pathogens, seed predators and other factors - many linked to the age of the seed or inflorescence
-  - seed-specific recruitment depends on viability and seed properties (size etc), conditions during the establishment phase (rainfall etc), finding suitable microsites, etc.
-  - per-capita recruitment is the combination of fecundity and seed-specific recruitment
+-   **species differ in their reliance on seed** for their survival (e.g. sprouters vs seeders)
+    -   sprouters have high persistence of adults through fires and need fewer new recruits from seed
+    -   seeder adults are killed by fire, so populations depend entirely on recruitment from seed
+-   **species vary in their fecundity** (total number of seeds)
+    -   fecundity = number of inflorescences produced multiplied by the number of seeds per inflorescence
+-   **species vary in seed viability and recruitment success**
+    -   viability depends on pathogens, seed predators and other factors - many linked to the age of the seed or inflorescence
+    -   seed-specific recruitment depends on viability and seed properties (size etc), conditions during the establishment phase (rainfall etc), finding suitable microsites, etc.
+    -   per-capita recruitment is the combination of fecundity and seed-specific recruitment
 
 <br>
 
@@ -145,15 +162,15 @@ knitr::include_graphics("img/proteavariation.jpg")
 
 <br>
 
-- there is also **intraspecific variation** in fecundity and recruitment along climatic, soil, fire regime, population density, pollinator availability and other gradients
-- and there is **interspecific variation** in this intraspecific variation 
-  - i.e. species vary among populations in their response to climatic, soil, pollinator availability and other gradients
+-   there is also **intraspecific variation** in fecundity and recruitment along climatic, soil, fire regime, population density, pollinator availability and other gradients
+-   and there is **interspecific variation** in this intraspecific variation
+    -   i.e. species vary among populations in their response to climatic, soil, pollinator availability and other gradients
 
 <br>
 
 ## Assessing population viability
 
-Fortunately, we can address these issues by using the data in demographic models to perform population viability analysis under varying harvesting rates [e.g. @Treurnicht2021]. 
+Fortunately, we can address these issues by using the data in demographic models to perform population viability analysis under varying harvesting rates [e.g. @Treurnicht2021].
 
 ```{r, echo=FALSE}
 knitr::include_graphics("img/proteasensitivity.jpg")
@@ -167,13 +184,13 @@ knitr::include_graphics("img/proteasensitivity2.jpg")
 
 These models suggest that following **the current harvesting guidelines can greatly increase the probability of many populations going extinct** (Figure \@ref(fig:proteasensitivity); @Treurnicht2021), and that they would threaten a large portion of populations for some species, including the most commercially valuable ones!
 
-**But is that enough?** So what should the harvesting guidelines be? Are we sure they would be effective and what if there are "ecological surprises" that make them inappropriate? For example, @Treurnicht2021 did not consider changing climate or fire regimes? 
+**But is that enough?** So what should the harvesting guidelines be? Are we sure they would be effective and what if there are "ecological surprises" that make them inappropriate? For example, @Treurnicht2021 did not consider changing climate or fire regimes?
 
 Should we just **ban wildflower harvesting** altogether to be safe? While it isn't a huge industry, a ban would be undesirable for a number of reasons:
 
-- many **livelihoods depend on wildflower harvesting**, often among the very poor
-- while some species are targeted and may decline as a result, at least it's still Fynbos. Removing the option to earn from that land would **risk forcing the landowner to consider more destructive land use** activities or potentially convert it to other land cover types
-- while some species may struggle under the existing guidelines, **some species are largely unaffected** and can quite happily be harvested
+-   many **livelihoods depend on wildflower harvesting**, often among the very poor
+-   while some species are targeted and may decline as a result, at least it's still Fynbos. Removing the option to earn from that land would **risk forcing the landowner to consider more destructive land use** activities or potentially convert it to other land cover types
+-   while some species may struggle under the existing guidelines, **some species are largely unaffected** and can quite happily be harvested
 
 What we really need is **ongoing monitoring and updated forecasts** that respond and adjust the guidelines to allow sustainable harvesting while not threatening the species. Ideally, these forecasts would **include the impacts of changing climate and fire**.
 
@@ -183,7 +200,7 @@ What we really need is **ongoing monitoring and updated forecasts** that respond
 
 @Merow2014 combined demographic modelling and species distribution modelling using a **"Demographic Distribution Model"** whereby they used spatial covariation between demographic rates and environmental conditions to infer **where the species can maintain positive population growth rates** under current and future climate and fire conditions.
 
-> **Interesting side note**: This analysis used _integral projection models_ (IPMs), which you can think of as the "next generation" of the Leslie matrix model that you will encounter in Res Altwegg's lectures. In IPMs the state variable is size (not age) and there are far more classes (i.e. rows and columns in the "matrix"). The (very oversimplified explanation of) the advantage of this is that you can build regression models for the vital rates as a function of plant size and environmental parameters and then relate those back to your transition matrix. This allows you to explore the effect of spatial covariates (climate, soil, fire, etc) on demographic rates, which would be very difficult to do if you only had a few size classes. This also allow you to make projections for different conditions, allowing you to explore the effects of climate change, altered fire regimes, etc.
+> **Interesting side note**: This analysis used *integral projection models* (IPMs), which you can think of as the "next generation" of the Leslie matrix model that you will encounter in Res Altwegg's lectures. In IPMs the state variable is size (not age) and there are far more classes (i.e. rows and columns in the "matrix"). The (very oversimplified explanation of) the advantage of this is that you can build regression models for the vital rates as a function of plant size and environmental parameters and then relate those back to your transition matrix. This allows you to explore the effect of spatial covariates (climate, soil, fire, etc) on demographic rates, which would be very difficult to do if you only had a few size classes. This also allow you to make projections for different conditions, allowing you to explore the effects of climate change, altered fire regimes, etc.
 
 <br>
 
@@ -195,7 +212,7 @@ knitr::include_graphics("img/merow2014vitalrates.jpg")
 
 First, they modeled the species' **individual vital rates** as a function of environmental variation across its range (Figure \@ref(fig:merow2014vitalrates)).
 
-Then they combined them to **estimate the population growth rates $\lambda$ per pixel**, providing an indication of where the population should remain stable or increase ($\lambda>1$) or decline and go extinct ($\lambda<1$). This was used as a **threshold to map the species' distribution** (Figure \@ref(fig:merow2014lambda)).
+Then they combined them to **estimate the population growth rates** $\lambda$ per pixel, providing an indication of where the population should remain stable or increase ($\lambda>1$) or decline and go extinct ($\lambda<1$). This was used as a **threshold to map the species' distribution** (Figure \@ref(fig:merow2014lambda)).
 
 <br>
 
@@ -217,9 +234,9 @@ knitr::include_graphics("img/merow2014projections.jpg")
 
 There's a lot of interesting spatial variation in the species' expected response to changing conditions! The beauty of this analysis is that it:
 
-a. can tell us where we are most likely to see a negative response - **guiding where to monitor**
-b. can break that response down into its **component vital rates** - i.e. growth, seed production (fecundity), survival, etc - which are all things that are relatively easy to monitor!
-c. can easily include or be used to **derive sustainable harvesting rates**
+a.  can tell us where we are most likely to see a negative response - **guiding where to monitor**
+b.  can break that response down into its **component vital rates** - i.e. growth, seed production (fecundity), survival, etc - which are all things that are relatively easy to monitor!
+c.  can easily include or be used to **derive sustainable harvesting rates**
 
 <br>
 

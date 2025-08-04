@@ -371,7 +371,7 @@ div.csl-indent {
 <li>land cover change</li>
 <li>tree/forest die-off</li>
 <li>carbon stocks and sequestration rates</li>
-<li>water quality</li>
+<li>water level/quality/temperature</li>
 <li>disease spread/risk</li>
 <li>fishing quotas</li>
 <li>risk of bycatch of species of concern</li>
@@ -379,10 +379,11 @@ div.csl-indent {
 <li>risk of harmful algal blooms</li>
 <li>etc</li>
 </ul>
-<p>For the rest of this section, I’m going to focus on an example of what I believe is one forecasting need and opportunity in the Fynbos Biome. I was going to give 3 examples, but rapidly realized it would be too long a lecture. I’ll be using the other examples to illustrate various principles in later lectures, but hopefully this example will provide some practical context for some of the issues we’ll address in the rest of the module.</p>
-<blockquote>
-<p><strong>Note:</strong> This example has not yet been developed into full <em>near-term iterative ecological forecast</em> sensu Dietze et al (2018). I also don’t think they necessarily have to get all the way there to be useful. Think of it as an “ecological forecasting spectrum” where the gold standard is fully developed and automated near-term iterative ecological forecasts.</p>
-</blockquote>
+<p><strong>What are the ecological forecasting needs in the Fynbos Biome?</strong></p>
+<p><img src="img/CFR_Seasonality.gif" width="80%" style="display: block; margin: auto;" /></p>
+<p>The figure below from <span class="citation">Slingsby et al. (<a href="#ref-Slingsby2023">2023</a>)</span> outlines a set of different examples and needs for the Fynbos. I was going to try to cover all of them in this lecture, but rapidly realized it would be too long. The cool idea proposed by the paper is that many of the data streams and the informatics pipeline could be shared across multiple forecasts, reducing the overhead and maximising the versatility of the system. One could also learn a lot by comparing forecasts at different scales - e.g. the behaviour of plant populations versus the entire ecosystem.</p>
+<p>For the rest of this section, I’m going to focus on one example of what I believe is a forecasting need and opportunity in the Fynbos Biome. I’ll be using the other examples to illustrate various principles in later lectures, but hopefully this example will provide some practical context for some of the issues we’ll address in the rest of the module.</p>
+<p><img src="img/slingsby2023_figure1.png" /></p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:dietze2018F1F"></span>
 <img src="img/dietze2018_F1.jpg" alt="Conceptual relationships between iterative ecological forecasting, adaptive decision-making, adaptive monitoring, and the scientific method cycles [@Dietze2018]." width="640" />
@@ -396,6 +397,11 @@ Figure 3.1: Conceptual relationships between iterative ecological forecasting, a
 <p><img src="img/cynaroideslive.jpg" width="90%" style="display: block; margin: auto;" /></p>
 <div id="proteaceae-as-model-organisms" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Proteaceae as model organisms<a href="forecasts.html#proteaceae-as-model-organisms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><br></p>
+<blockquote>
+<p><strong>Note:</strong> This example has not yet been developed into full <em>near-term iterative ecological forecast</em> sensu Dietze et al (2018). I also don’t think they necessarily have to get all the way there to be useful. Think of it as an “ecological forecasting spectrum” where the gold standard is fully developed and automated near-term iterative ecological forecasts.</p>
+</blockquote>
+<p><br></p>
 <p>The Proteaceae are probably the <strong>best studied and understood plant family in the Fynbos Biome</strong>. They have been the focus of a number of large, focused research programmes and are used as indicator species for various conservation management applications. There has been <strong>extensive locality and demographic data</strong> have been collected by conservation authorities (CapeNature and SANParks), citizen scientists (Protea Atlas Project and iNaturalist) and researchers since the late 1970s and before, and this is reflected in the large (and growing) scientific literature on the family.</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:protearesearch"></span>
@@ -536,7 +542,7 @@ Figure 3.8: Estimated vital rates of <em>Protea repens</em> across the CFR. Figu
 </div>
 <p><br></p>
 <p>First, they modeled the species’ <strong>individual vital rates</strong> as a function of environmental variation across its range (Figure <a href="forecasts.html#fig:merow2014vitalrates">3.8</a>).</p>
-<p>Then they combined them to <strong>estimate the population growth rates <span class="math inline">\(\lambda\)</span> per pixel</strong>, providing an indication of where the population should remain stable or increase (<span class="math inline">\(\lambda&gt;1\)</span>) or decline and go extinct (<span class="math inline">\(\lambda&lt;1\)</span>). This was used as a <strong>threshold to map the species’ distribution</strong> (Figure <a href="forecasts.html#fig:merow2014lambda">3.9</a>).</p>
+<p>Then they combined them to <strong>estimate the population growth rates</strong> <span class="math inline">\(\lambda\)</span> per pixel, providing an indication of where the population should remain stable or increase (<span class="math inline">\(\lambda&gt;1\)</span>) or decline and go extinct (<span class="math inline">\(\lambda&lt;1\)</span>). This was used as a <strong>threshold to map the species’ distribution</strong> (Figure <a href="forecasts.html#fig:merow2014lambda">3.9</a>).</p>
 <p><br></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:merow2014lambda"></span>
 <img src="img/merow2014lambda.jpg" alt="Model evaluation of the predicted population growth rate ($\lambda$) and distribution of _Protea repens_ across the CFR. (a) Mean $\lambda$ and (b) interquartile range of $\lambda$. (c–d) Evaluation of (a) using presence/absence data. (e) Posterior probability that $\lambda$ &gt; 1, representing a viable population. (f) Evaluation of (a) using ordinal abundance data. Figure from @Merow2014." width="90%" />
@@ -601,6 +607,9 @@ Merow, Cory, Andrew M Latimer, Adam M Wilson, Sean M McMahon, Anthony G Rebelo, 
 </div>
 <div id="ref-Schurr2012" class="csl-entry">
 Schurr, Frank M, Karen J Esler, Jasper A Slingsby, and Nicky Allsopp. 2012. <span>“<span class="nocase">Fynbos Proteaceae as model organisms for biodiversity research and conservation</span>.”</span> <em>South African Journal of Science</em> 108 (11-12): 12–16.
+</div>
+<div id="ref-Slingsby2023" class="csl-entry">
+Slingsby, Jasper A, Adam M Wilson, Brian Maitner, and Glenn R Moncrieff. 2023. <span>“<span class="nocase">Regional ecological forecasting across scales: A manifesto for a biodiversity hotspot</span>.”</span> <em>Methods in Ecology and Evolution / British Ecological Society</em>, January. <a href="https://doi.org/10.1111/2041-210x.14046">https://doi.org/10.1111/2041-210x.14046</a>.
 </div>
 <div id="ref-Treurnicht2016" class="csl-entry">
 Treurnicht, Martina, Jörn Pagel, Karen J Esler, Annelise Schutte-Vlok, Henning Nottebrock, Tineke Kraaij, Anthony G Rebelo, and Frank M Schurr. 2016. <span>“<span class="nocase">Environmental drivers of demographic variation across the global geographical range of 26 plant species</span>.”</span> Edited by Roberto Salguero-Gómez. <em>The Journal of Ecology</em> 104 (2): 331–42. <a href="https://doi.org/10.1111/1365-2745.12508">https://doi.org/10.1111/1365-2745.12508</a>.
