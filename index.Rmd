@@ -52,7 +52,7 @@ Your report on the practical will be ***due on Tuesday, 19th August*** - You wil
 
 You need to install and set up RStudio and Github and test your setup. You can find the step-by-step instructions in section \@ref(pracprep). This may be a bit tedious, but there's no other option really. I've done my best to make it as painless as possible. It should take you about half an hour if all goes well... (less if you have R and RStudio installed already, but please make sure they are the latest versions!).
 
-**PLEASE DO THE SETUP BEFORE WE MEET!!!** I will check in on Monday the 29th July to see if people are having issues, but don't expect my help if you haven't tried by yourself first. Trust me, I will be able to tell...
+**PLEASE DO THE SETUP BEFORE WE MEET!!!** I will check in on Monday the 11th August to see if people are having issues, but don't expect my help if you haven't tried by yourself first. Trust me, I will be able to tell...
 
 <br>
 

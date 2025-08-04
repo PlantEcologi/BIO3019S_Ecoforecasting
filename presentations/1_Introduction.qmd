@@ -18,13 +18,13 @@ Jasper Slingsby
 
 ### What do you consider when making decisions?
 
-::: {.fragment}
+::: fragment
 Informing decisions requires knowing (or guessing at) something about the future.
 
 We base our *expectation* on:
 :::
 
-::: {.incremental}
+::: incremental
 -   The *evidence*
 -   Our *experience*
 -   *Uncertainty*
@@ -78,7 +78,7 @@ The relationship between ***effort*** and ***reward*** is nearly 1 to 1, suggest
     -   Was your forecast was any good?
     -   Should you refine or replace your model, consider additional scenarios or inputs?
 
-## Our hypothetical example {background-color="#c2c190"}
+## Our hypothetical example {.smaller background-color="#c2c190"}
 
 ```{r, echo=F, message=F, fig.align='center'}
 dat <- bind_rows(dat, data.frame(Reward = 30:37 + rnorm(8, mean = 0, sd = 2), Effort = seq(30,65,5) + rnorm(8, mean = 0, sd = 2)))
@@ -123,15 +123,18 @@ So iterative decision-making facilitates iterative learning (i.e. scientific pro
 
 In ecology, we mostly test qualitative, imprecise hypotheses:
 
--   *"Does X have an effect on Y?"*, rather than:
--   *"What is the relationship between X and Y?"* or better yet - *"What value would we expect Y to be, given a particular value of X?"*
+-   *"Does X have an effect on Y?"*
+    - Null hypothesis testing is aimed at testing the "null" hypothesis of no relationship. Rejecting the null hypothesis (p < 0.05) simply means there is a relationship, but doesn't specify what it is!
 
-::: {.fragment}
+::: fragment
+
+Better to ask:
+
+-   *"What is the relationship between X and Y?"* or better yet - *"What value would we expect Y to be, given a particular value of X?"*
 
 Without testing precise hypotheses and using the results to make ***testable predictions*** we don't know if our findings are generalisable beyond our specific data set.
 
 -   If results are not generalisable, they're not improving our understanding of ecology.
-
 :::
 
 ##  {.smaller background-color="#33431e"}
@@ -144,12 +147,10 @@ Without testing precise hypotheses and using the results to make ***testable pre
 
 <br/>
 
-:::{.fragment}
-
+::: fragment
 -   The **"gold standard"** is an informatics pipeline that can ingest new data and **make new forecasts automatically** with minimal user input.
 -   This poses a number of major challenges and requires a big improvement in quantitative skills in biology (hence this course...).
 -   Fortunately, any steps towards the gold standard are likely to be useful, even if we never get there.
-
 :::
 
 ##  {.smaller background-color="#33431e"}
@@ -190,7 +191,7 @@ Without testing precise hypotheses and using the results to make ***testable pre
 
 This can also be represented as a cycle, mirroring the scientific method:
 
-::: columns
+:::::: columns
 ::: {.column width="45%"}
 ![From @Dietze2018](img/ecoforecastingloop.png){fig-align="center"}
 :::
@@ -206,7 +207,7 @@ The key steps are:
 3.  **Analyse** the new observations in the context of your forecast and original data
 4.  **Update** estimates of the current state of the system (data and understanding), before making a new forecast
 :::
-:::
+::::::
 
 ##  {background-color="#33431e"}
 
@@ -235,9 +236,9 @@ So it's a great way of getting scientists to engage in real-world problems, demo
 
 ![](img/dietze2018_F1.jpg){fig-align="center"}
 
-This figure from Dietze et al. 2018 provides an expanded representation of these conceptual links between iterative ecological forecasting, the scientific method, and decision making (here in the context of *adaptive management*, which is a management paradigm that focuses on learning by doing).
+This figure from Dietze et al. 2018 provides an expanded representation of the conceptual links between iterative ecological forecasting, the scientific method, decision making (here in the context of *adaptive management*, which is a management paradigm that focuses on learning by doing), and adaptive monitoring.
 
-##  {.smaller background-color="#33431e"}
+##  {background-color="#33431e"}
 
 ### Reproducible research
 
@@ -247,8 +248,14 @@ Iterative ecological forecasts need to be founded on a **highly efficient inform
 
 -   The best way to build the ecoinformatics pipeline is to follow **reproducible research** principles, including good (and rapid) **data management**
 
-![](img/olympian_goal.png){fig-align="center"}
+##  {.smaller background-color="#33431e"}
 
-Adding this to previous slide highlights what I like to think of as *"The Olympian Challenge of data-driven ecological decision making"*.
+### Iterative ecological forecasting in context 
+
+![](img/olympian_goal.png){fig-align="center"} 
+
+Adding reproducible research to the 4 learning cycles represented in the Dietze figure highlights what I like to think of as *"The Olympian Challenge of data-driven ecological decision making"*.
+
+We will touch on these different aspects throughout this module.
 
 ## References {background-color="#33431e"}
