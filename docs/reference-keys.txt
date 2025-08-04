@@ -62,7 +62,7 @@ fig:structureddecisions
 fig:rstudiosuccess
 overview
 general
-information-for-participants-in-the-bio319s-course-2025
+information-for-the-bio3019s-class-of-2025
 preparation
 a-bit-about-the-author
 acknowledgements-and-further-reading
@@ -176,5 +176,3 @@ compare-nls-models-using-anova
 fit-models-using-maximum-likelihood-estimation-mle
 compare-mle-models-using-akaikes-information-criterion-aic
 going-bayesian
-information-for-the-bio3019s-course-2025
-information-for-the-bio3019s-class-of-2025
