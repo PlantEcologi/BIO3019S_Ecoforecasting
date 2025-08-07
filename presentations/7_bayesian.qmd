@@ -14,6 +14,44 @@ bibliography: book.bib
 
 Jasper Slingsby
 
+## Where are we? {.smaller background-color="#c2c190"}
+
+::: columns
+::: {.column width="45%"}
+
+![The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts.](img/ecoforecastingloop.png){width="100%"}
+:::
+
+::: {.column width="55%"}
+
+-   Iterative ecological forecasting represents a learning cycle that mirrors (and integrates with) the scientific method and adaptive management, helping us:
+    - learn by doing
+    - make our science more useful
+
+:::
+:::
+
+
+## Where are we? {.smaller background-color="#c2c190"}
+
+::: columns
+::: {.column width="45%"}
+
+![The iterative ecological forecasting cycle in the context of the scientific method, demonstrating how we stand to learn from making iterative forecasts.](img/ecoforecastingloop.png){width="100%"}
+:::
+
+::: {.column width="55%"}
+
+-   It also presents new challenges (and opportunities) to the way we do science, requiring:
+    1. informatics infrastructure to support our forecasts
+    2. statistical methods that allow:
+        - automatic updates of forecasts for the next time step as new data are acquired
+        - quantification and propagation of uncertainty in our forecasts
+
+:::
+:::
+
+
 ## Going Bayesian {.smaller background-color="#c2c190"}
 
 ::: columns
@@ -50,15 +88,17 @@ Jasper Slingsby
 
 ## But first... {.smaller background-color="#33431e"}
 
-**Before I can introduce Bayes**, there are a few basic building blocks we need to establish first.
+**Before I can introduce Bayes**, there are a few basic building blocks we need to establish.
 
-1.  How the method of ***Least Squares*** works, and its limitations, especially it's inflexible, implicit data model.
+<br>
+
+1.  How the method of ***Least Squares*** works, and its limitations, especially its inflexible, implicit data model.
 
 . . .
 
 2.  The concept of likelihood and the method of ***maximum likelihood estimation***
     -   this is a major component of Bayes' Theorem
-    -   its a frequentist method, but has the advantages 1 & most of 2 on previous slide
+    -   it's a frequentist method, but has the advantages 1 & most of 2 on previous slide
         -   in fact, there are frequentist approaches for doing much of the advantages listed on the previous slide, but they are typically cumbersome. Bayes you can do it all without much extra work.
 
 ## Least Squares {background-color="#33431e"}
@@ -182,16 +222,16 @@ It's useful at this stage to make a distinction between data models and process 
 
 . . .
 
-> Least Squares analyses don't explicitly include a data model, because minimizing the sums of squares means that ***the data model in a Least Squares analysis can only ever be a normal distribution*** (i.e. there must be homogeneity of variance)
+> Least Squares analyses don't explicitly include a data model, because minimizing the sums of squares means that ***the data model in a Least Squares analysis can only ever be a [normal (Gaussian) distribution](https://en.wikipedia.org/wiki/Normal_distribution)*** (i.e. there must be homogeneity of variance)
 
 ## Why is this a limitation? {.smaller background-color="#c2c190"}
 
-a)  in reality, the ***data model can take many forms***
-    -   e.g. Binomial coin flips, Poisson counts of individuals, Exponential waiting times, etc
+a)  the ***data model can take many forms*** (= drawn from different [probability distributions](https://en.wikipedia.org/wiki/List_of_probability_distributions))
+    -   e.g. [Binomial](https://en.wikipedia.org/wiki/Binomial_distribution) coin flips, [Poisson](https://en.wikipedia.org/wiki/Poisson_distribution) counts of individuals, [Exponential](https://en.wikipedia.org/wiki/Exponential_distribution) waiting times, etc
     -   this is where Maximum Likelihood comes into it's own
         -   in the practical, we specify two functions for the MLE analyses:
             -   the ***process model*** (`pred.negexp/S`)
-            -   the likelihood function (`fit.negexp/S.MLE`), which includes the ***data model***
+            -   the likelihood function (`fit.negexp/S.MLE`), which includes the ***data model*** (and this does not have to be a normal distribution)
 
 . . .
 
@@ -209,26 +249,42 @@ b)  sometimes one would like to ***include additional information in the data mo
 
 -   For a linear model, ***the null hypothesis is that the slope = 0 (i.e. no effect of X on Y)***
 
+. . .
+
 -   A linear model is only considered useful when you can reject the null hypothesis.
 
     -   This just tells you that the probability of the parameter of interest (the slope in this case) being 0 is very low...
 
--   It ***tells you nothing about the probability of the parameters actually being the estimates you arrives at by minimizing the sums of squares***!!!?
+-   It ***tells you nothing about the probability of the parameters actually being the estimates you arrived at by minimizing the sums of squares***!!!?
 
 ## Maximum likelihood {.smaller background-color="#33431e"}
 
+<br>
+
 ***The likelihood principle*** = a parameter value is more likely than another if it is the one for which the data are more probable.
 
+<br>
+
 ::: fragment
-***Maximum Likelihood Estimation (MLE)*** = a method for estimating model parameters by applying the likelihood principle. It optimizes parameter values to maximize the likelihood that the process described by the model produced the data observed.
+***Maximum Likelihood Estimation (MLE)*** = a method for estimating model parameters by applying the likelihood principle. 
+
+  - It optimizes parameter values to maximize the likelihood that the process described by the model produced the data observed.
+
+:::
+
+## Maximum likelihood {.smaller background-color="#33431e"}
+
+::: columns
+
+::: {.column width="60%"}
 
 ```{r}
 #| label: likelihood
 #| echo: false
 #| message: false
 #| fig.align: center
-#| out.width: 55%
-#| fig.cap: The probability of a data point (dotted line) being generated under two alternative hypotheses (sets of parameter values). Here H1 is more likely, because the probability density at $x$ = 1 is higher for H1 than H2 (roughly 0.25 vs 0.025 = 10 times more likely). Usually there'd be a continuum of hypotheses (parameter values) to select from, and there'd be far more data points.
+#| out.width: 100%
+#| fig.cap: The probability of a data point (dotted line) being generated under two alternative hypotheses (sets of parameter values - in this case the means and standard deviations describing the two normal distributions). <br> <br> Here H1 has a higher likelihood, because the probability density at $x$ = 1 is higher for H1 than H2 (roughly 0.25 vs 0.025 = 10 times more likely). Usually there'd be a continuum of hypotheses (parameter values) to select from, and there'd be far more data points.
 
 ddat <- data.frame(x = c(rnorm(5000, 0, 1), rnorm(5000, 5, 2)), Hypotheses = c(rep("H1", 5000), rep("H2", 5000))) 
 
@@ -238,13 +294,33 @@ ggplot(ddat, aes(x, fill = Hypotheses, colour = Hypotheses)) +
   ylab("Density")
 
 ```
+::: 
+
+::: {.column width="40%"}
+
+*Probability* = area under the curve (whole curve sums to 1)
+
+*Likelihood* = y-axis values (i.e. probability densities)
+
+<br>
+
+Likelihood is maximised by shifting the distribution (i.e. changing the mean and SD parameters) such that the data points have the highest likelihood. This maximizes the conditional probability of the data given those parameter values for the model.
+
+::: 
+::: 
+
+::: aside
+
+[This video with ukulele music may help.](https://www.youtube.com/watch?v=pYxNSUDSFH4)
+
 :::
+
 
 ## Maximum likelihood {.smaller background-color="#33431e"}
 
-Viewed differently...
+<br>
 
-With MLE we assume we have the correct model and use MLE to choose parameter values that maximize the *conditional probability* of the data given those parameter values, $P(Data|Parameters)$.
+With MLE we assume we have the correct model and use MLE to choose parameter values that maximize the *conditional probability* of the data given those parameter values, i.e. $P(Data|Parameters)$.
 
 -   This leaves us knowing the likelihood of the best set of parameters and the conditional probability of the data given those parameters $P(Data|Parameters)$
 
@@ -275,7 +351,7 @@ The interactions between two random variables are illustrated below...
 :::
 
 ::: {.column width="50%"}
--   The ***joint probability***, $P(x,y)$, is the probability of both $x$ and $y$ occurring simultaneously
+-   The ***joint probability***, $P(x,y)$, is the probability of both $x$ ***and*** $y$ occurring simultaneously
 
 ::: {.incremental}
 
@@ -300,14 +376,14 @@ The interactions between two random variables are illustrated below...
 ::: {.column width="50%"}
 We can also define two ***conditional probabilities***:
 
--   the probability of $x$ given $y$, $P(x|y)$
--   the probability of $y$ given $x$, $P(y|x)$
+-   the probability of $x$ ***given*** $y$, $P(x|y)$
+-   the probability of $y$ ***given*** $x$, $P(y|x)$
 
 In the diagram these would be:
 
 ::: {.incremental}
--   the probability of being in set $x$ given we are only considering points in set $y$ (= 3/6)
--   the probability of being in set $y$ given we are only considering points in set $x$ (= 3/7)
+-   the probability of being in set $x$ ***given*** we're only considering points in set $y$ (= 3/6)
+-   the probability of being in set $y$ ***given*** we're only considering points in set $x$ (= 3/7)
 :::
 :::
 :::
@@ -325,7 +401,7 @@ In the diagram these would be:
 ::: {.column width="50%"}
 Last, we can define two ***marginal probabilities*** for $x$ and $y$.
 
-These are just the separate probabilities of being in set $x$ or being in set $y$ given the full set of events, i.e.
+These are just the separate probabilities of any of the full set of events being in set $x$ or being in set $y$, i.e.
 
 -   $P(x)$ = 7/10 and
 -   $P(y)$ = 6/10
@@ -336,13 +412,24 @@ These are just the separate probabilities of being in set $x$ or being in set $y
 
 ### Joint, conditional and marginal probabilities
 
+::: columns
+::: {.column width="20%"}
+
+![](img/vennprobability.png)
+
+:::
+
+::: {.column width="80%"}
 We can also show that the joint probabilities are the product of the conditional and marginal probabilities:
+:::
+:::
 
 $$P(x,y) = P(x|y) P(y) = 3/6 * 6/10 = 0.3$$
 
 and:
 
 $$P(y,x) = P(y|x) P(x) = 3/7 * 7/10 = 0.3$$
+
 
 ::: {.fragment}
 
@@ -481,28 +568,50 @@ By applying ***the scientific method***, whereby we interrogate new evidence (th
 
 -   $p(\theta)$ is the ***prior belief*** of what the parameters should be, before interrogating the data
     -   i.e. our "context of previous knowledge or information"
--   if we don't have much previous knowledge, we can specify the prior to represent this
--   the prior is incredibly powerful! But the [Peter Parker Principle](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility) applies - *"With great power comes great responsibility!"*
+-   if we don't have much previous knowledge, we can specify the prior to represent this by indicating our uncertainty
 
-## The power of the prior {background-color="#33431e"}
 
-1.  It allows Bayesian analyses to be ***iterative***. The posterior from one analysis can become the prior for the next!
-    -   This provides ***a formal probabilistic framework for the scientific method!***
-        -   New evidence must be considered in the context of previous knowledge, providing the opportunity to update our beliefs.
+## The influence of the prior vs the data? {.smaller background-color="#33431e"}
+
+```{r priorVlikelihood, echo=F, message=F, fig.cap = "Comparison of the effects on the posterior probability situations where there is (A) high uncertainty in the prior and low observation error in the data (the likelihood), versus (B) low uncertainty in the prior and high observation error. Note that the data and prior have the same means in panels A and B, but the variances differ.", fig.align = 'center', out.width="75%"}
+ddat <- data.frame(x = c(rnorm(5000, 0, 1), rnorm(5000, 0, 3), rnorm(5000, 1, 0.75), rnorm(5000, 4, 0.75), rnorm(5000, 5, 3), rnorm(5000, 5, 1)), 
+                   Label = c(rep("Data", 10000), rep("Posterior", 10000), rep("Prior", 10000)), 
+                   Facet = rep(c(rep("A", 5000), rep("B", 5000)), 3)) 
+ggplot(ddat, aes(x, fill = Label, colour = Label)) +
+  geom_density(alpha = 0.1, bw = 1) +
+  ylab("Density") +
+  coord_flip() +
+  facet_wrap(vars(Facet))
+```
+
+## The power of the prior {.smaller background-color="#33431e"}
+
+1.  It allows Bayesian analyses to be ***iterative***. 
+
+> The posterior from one analysis can become the prior for the next!
+
+-   This provides ***a formal probabilistic framework for the scientific method!***
+-   New evidence must be considered in the context of previous knowledge, providing the opportunity to update our beliefs.
     -   This is ***ideal for iterative forecasting***, because the previous forecast can be the prior for the next.
 
-## The power of the prior {background-color="#33431e"}
+## The power of the prior {.smaller background-color="#33431e"}
 
 2.  It makes Bayesian models ***incredibly flexible***, allowing us to specify complex hierarchical models in a completely probabilistic framework relatively intuitively.
     -   This is fantastic for "fusing" disparate data sources!
         -   E.g. we may not have "prior beliefs" about a parameter's values, but we may know something about another parameter or process that influences it. If so, we can specify a prior on our prior (called a ***hyperprior***).
     -   We can also specify separate or linked priors (or hyperpriors) for different parameters (or priors).
 
+::: aside
+More on this in our next lecture...
+:::
+
 ##  {.smaller background-color="#33431e"}
 
 ### The prior comes with great responsibility...
 
 > It is very easy to specify an inappropriate prior and bias the outcome of your analysis!
+
+-   The prior is incredibly powerful! But the [Peter Parker Principle](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility) applies - *"With great power comes great responsibility!"*
 
 ::: {.incremental}
 
