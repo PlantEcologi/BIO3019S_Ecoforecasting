@@ -14,6 +14,10 @@ bibliography: book.bib
 
 Jasper Slingsby
 
+# {background-color="#33431e"}
+
+This lecture builds on the previous, “Going Bayesian”, focusing on how the opportunities for imputing (or “fusing”) data with models increase with model structure as one moves from the method of Least Squares to Hierarchical Bayesian models.
+
 ## A reminder of Bayes Theorem {background-color="#33431e"}
 
 <br/>
@@ -35,9 +39,9 @@ $$
 
 ### The *posterior*
 
-The ***posterior*** is the conditional probability of the parameters given the data $p(\theta|D)$ and provides a probability distribution for the values any parameter can take, 
+The ***posterior*** is the conditional probability of the parameters given the data $p(\theta|D)$ and provides a probability distribution for the values any parameter can take. 
 
-This allows us to represent uncertainty in the model and forecasts as probabilities, which is powerful for indicating the probability of our forecast being correct.
+This allows us to represent uncertainty in the model and forecasts as probabilities, which is powerful for indicating the probability of our forecast being correct, and for identifying sources of uncertainty in our model.
 
 
 ## A reminder of Bayes Theorem {.smaller background-color="#33431e"}
@@ -63,16 +67,17 @@ $$
 
 The ***prior*** is the marginal probability of the parameters, $p(\theta)$.
 
-It represents the credibility of the parameter values, $\theta$, without the data, and is specified using our prior belief of what the parameters should be, before interrogating the data. 
+It represents the credibility of the parameter values, $\theta$, without the data, and is specified using our prior belief of what the parameters should be, before interrogating the data.
+
 This provides a formal probabilistic framework for the scientific method, in that new evidence must be considered in the context of previous knowledge, providing the opportunity to update our beliefs.
 
 
 ## Advantages of Bayesian approaches {.smaller background-color="#33431e"}
 
 ::: incremental
-1.  They ***focus on estimating what properties are*** - i.e. the actual value of parameters, not just establishing that they are different to a null expectation as in *null hypothesis testing*
+1.  They ***focus on estimating what properties are*** - i.e. the actual value of parameters, not just establishing that they are different to a null expectation as in *null hypothesis testing*.
 2.  They are highly ***flexible***, allowing ***complex models with varied data sources***, especially Hierarchical Bayesian models. This is important for ***Data Fusion***!!!
-3.  They can ***treat all terms as probability distributions***, making it easier to quantify, propagate and partition uncertainties throughout the analysis. This allows you to ***present uncertainty*** in the forecast to the decision maker and ***analyze the sources of uncertainty***, guiding improvements
+3.  They can ***treat all terms as probability distributions***, making it easier to quantify, propagate and partition uncertainties throughout the analysis. This allows you to ***present uncertainty*** in the forecast to the decision maker and ***analyze the sources of uncertainty***, guiding improvements.
 4.  They provide an ***iterative*** probabilistic framework that allows us to learn from new evidence (data) in the context of existing (*prior*) knowledge. This akin to the scientific method and makes it easier to update predictions as new data become available, completing the forecasting cycle.
 :::
 
@@ -100,23 +105,15 @@ This provides a formal probabilistic framework for the scientific method, in tha
 - _the only opportunity to add data to a least squares model is via the process model_
 :::
 
-## Least Squares {.smaller background-color="#33431e"}
+## Example: Post-fire recovery {.smaller background-color="#33431e"}
 
 ```{r fynbos, echo=FALSE, fig.cap = "", fig.width=3, fig.align = 'center', out.width="80%"}
 knitr::include_graphics("img/CFR_Seasonality.gif")
 ```
 
-Here I'll use the example used in the practical, exploring time-series of the Normalised Difference Vegetation Index (NDVI ~ vegetation "greenness" measured from the MODIS satellites) to look at vegetation recovery with time since fire in Fynbos.
+Here I'll use the example used in the practical, exploring time-series of the Normalised Difference Vegetation Index (NDVI, a measure of vegetation "greenness", here measured from the MODIS satellites) to look at vegetation recovery with time since fire in Fynbos.
 
-
-## Least Squares {.smaller background-color="#33431e"}
-
-Here I use Nonlinear Least Squares (NLS) to fit a negative exponential model:
-
-\begin{gather}
-  \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)
-\end{gather}
-
+## Example: Post-fire recovery {.smaller background-color="#33431e"}
 
 ```{r, echo = F, fig.align='center'}
 ## Load required functions by running source() on the individual function files
@@ -131,6 +128,22 @@ dat <- download.NDVI(URL)
 # Convert "calendar_date" to postfire age in days since fire - assuming the first date in the times series is the time of the fire 
 dat$age <- (as.numeric(dat$calendar_date) - min(as.numeric(dat$calendar_date), na.rm = T))/365.25
 
+# plot
+plot.NDVI(dat = dat)
+```
+
+NDVI directly after a fire (*t* = 0) is very low and gradually recovers over time as vegetation grows. The relationship is not linear though, because the NDVI measure saturates as the vegetation reaches canopy closure. The vegetation may still be growing taller, by the greenness or amount of leaf observed from above barely changes.
+
+## Least Squares {.smaller background-color="#33431e"}
+
+Here I use Nonlinear Least Squares (NLS) to fit a negative exponential model with intercept:
+
+\begin{gather}
+  \text{NDVI}_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)
+\end{gather}
+
+
+```{r, echo = F, fig.align='center'}
 ## Simple model
 
 # set parameters
@@ -145,7 +158,7 @@ fit_negexp <- nls(NDVI ~ alpha + gamma * (1 - exp(- age/lambda)),
 plot.NDVI(dat = dat, fit = fit_negexp)
 ```
 
-This ***process model*** is **the only opportunity for inputting data**, and we input time series for $NDVI$ and date (or postfire $age$, since our time series started at the time of a fire). Parameters $\alpha$, $\gamma$ and $\lambda$ are estimated by the model. 
+This ***process model*** is **the only opportunity for inputting data**, and we input time series for $NDVI$ and date (or postfire $age$, since our time series started at the time of a fire). Parameters $\alpha$, $\gamma$ and $\lambda$ describe the shape of the curve and are estimated by the model. 
 
 
 ## Least Squares {.smaller background-color="#33431e"}
@@ -191,9 +204,12 @@ plot.NDVI(dat = dat, fit = fit_negexpS)
 plot.NDVI(dat = dat, fit = fit_negexpS)
 ```
 
+- $m$, $NDVI$ and $age$ are the data
+- the rest are parameters we estimate
+
 :::
 
-::: {.column width="45%"}
+::: {.column width="50%"}
 
 -   $\alpha$ is the NDVI at time 0 
     - i.e. directly after the fire
@@ -202,7 +218,7 @@ plot.NDVI(dat = dat, fit = fit_negexpS)
 -   $\lambda$ is the rate of increase in NDVI
 -   $A$ is the amplitude of the sine term
 -   $\phi$ adjusts the timing of the sine term based on the month the fire occurred
--   $m$ is the month that the fire occurred
+
 
 :::
 :::
@@ -222,7 +238,7 @@ knitr::include_graphics("img/MLElayers.png")
 
 <br/>
 
-I don't make the distinction in the equations presented in the practical, but do in the functions, where we included the _**data model**_, where we specified a Gaussian (normal) distribution around the mean, $\mu$ (which is described by the process model):
+I don't make the distinction in the equations presented in the practical, but do in the functions, where we included the _**data model**_, specified as a Gaussian (normal) distribution around the mean, $\mu$:
 
 \begin{gather}
 NDVI_{i,t}\sim\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}}) \\
@@ -234,7 +250,7 @@ Where $\mathcal{N}(\mu_{i,t},\frac{1}{\sqrt{\tau}})$ is just a normal distributi
 
 <br/>
 
-We then have a separate function for the _**process model**_, which describes $\mu$ as a function of the covariate (vegetation $age$), with parameters $\alpha$, $\gamma$, $\lambda$, $A$, $\phi$ and $m$:
+We then have a separate function for the _**process model**_, which describes $\mu$ as a function of the covariates (vegetation $age$ and month of fire $m$), with parameters $\alpha$, $\gamma$, $\lambda$, $A$ and $\phi$:
 
 \begin{gather}  
 \mu_{i,t}=\alpha_i+\gamma_i\Big(1-e^{-\frac{age_{i,t}}{\lambda_i}}\Big)+
@@ -245,7 +261,7 @@ We then have a separate function for the _**process model**_, which describes $\
 <br/>
 
 ::: {.fragment}
-Splitting the data and process models means we are now feeding our dependent variable (NDVI) to the data model and our independent variable (time or postfire age) to the process model. The two models are linked via $\mu$, the mean of the process model. $\mu$ does not account for the residual error, because this is described by the data model.
+Splitting the data and process models means we are now feeding our dependent variable (NDVI) to the data model and our independent variables (time or postfire age and month of fire) to the process model. The two models are linked via $\mu$, the mean of the process model. $\mu$ does not account for the residual error, because this is described by the data model.
 :::
 
 
@@ -300,7 +316,11 @@ Note that ***you need priors (i.e. parameter models) for all parameters***. They
 <br/>
 
 ::: {.fragment}
-While you can't specify new data in the priors in single-level Bayes (because that is then a Hierarchical model, coming next) it does still provide new opportunities for data fusion, because ***the conditional nature of Bayes Theorem allows you to chain multiple likelihoods (with multiple data models) together***. 
+While you can't specify new data in the priors in single-level Bayes (because that is then a Hierarchical model, coming next) it does allow us to include prior knowledge, which is useful. 
+
+<br/>
+
+Using single-level Bayes does provide other new opportunities for data fusion though, because ***the conditional nature of Bayes Theorem allows you to chain multiple likelihoods (with multiple data models) together***. 
 :::
 
 
@@ -480,7 +500,7 @@ knitr::include_graphics("img/emmaexceedmap.png")
 
 Examples of changes detected by @Slingsby2020. 
 
-Model predictions (dark and light grey $=$ 50% and 95% Confidence Intervals) and observed MODIS NDVI (blue line) detected anomalies:
+Model predictions (dark and light grey $=$ 50% and 95% Credible Intervals) and observed MODIS NDVI (blue line) detected anomalies:
 
 - fire at Karbonkelberg (a-c), 
 - clearing of alien vegetation at Miller's Point (d-f), 
